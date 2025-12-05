@@ -1,0 +1,126 @@
+{
+  "students": [
+    {
+      "id": "stud1",
+      "firstname": "Aarav",
+      "lastname": "Sharma",
+      "age": 20,
+      "dateOfBirth": "15/03/2005",
+      "gender": "Male",
+      "yearOfStudy": 3,
+      "branch": "Engineering",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Maths"
+      ]
+    },
+    {
+      "id": "stud2",
+      "firstname": "Priya",
+      "lastname": "Patel",
+      "age": 19,
+      "dateOfBirth": "22/07/2006",
+      "gender": "Female",
+      "yearOfStudy": 2,
+      "branch": "Medical",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Biology"
+      ]
+    },
+    {
+      "id": "stud3",
+      "firstname": "Rohan",
+      "lastname": "Desai",
+      "age": 21,
+      "dateOfBirth": "10/01/2004",
+      "gender": "Male",
+      "yearOfStudy": 4,
+      "branch": "Engineering",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Maths"
+      ]
+    },
+    {
+      "id": "stud4",
+      "firstname": "Ananya",
+      "lastname": "Reddy",
+      "age": 18,
+      "dateOfBirth": "05/09/2007",
+      "gender": "Female",
+      "yearOfStudy": 1,
+      "branch": "Arts",
+      "subjects": [
+        "History",
+        "Geography",
+        "English"
+      ]
+    },
+    {
+      "id": "stud5",
+      "firstname": "Arjun",
+      "lastname": "Kumar",
+      "age": 20,
+      "dateOfBirth": "18/05/2005",
+      "gender": "Male",
+      "yearOfStudy": 2,
+      "branch": "Commerce",
+      "subjects": [
+        "Accounting",
+        "Economics",
+        "Business Studies"
+      ]
+    },
+    {
+      "id": "stud6",
+      "firstname": "Diya",
+      "lastname": "Gupta",
+      "age": 21,
+      "dateOfBirth": "30/11/2004",
+      "gender": "Female",
+      "yearOfStudy": 3,
+      "branch": "Medical",
+      "subjects": [
+        "Physics",
+        "Chemistry",
+        "Biology"
+      ]
+    },
+    {
+      "id": "stud7",
+      "firstname": "Vivek",
+      "lastname": "Singh",
+      "age": 19,
+      "dateOfBirth": "14/02/2006",
+      "gender": "Male",
+      "yearOfStudy": 2,
+      "branch": "Engineering",
+      "subjects": [
+        "Maths",
+        "Physics",
+        "Chemistry",
+        "Sports"
+      ]
+    },
+    {
+      "id": "stud8",
+      "firstname": "Ishita",
+      "lastname": "Mehta",
+      "age": 18,
+      "dateOfBirth": "27/08/2007",
+      "gender": "Female",
+      "yearOfStudy": 1,
+      "branch": "Arts",
+      "subjects": [
+        "English",
+        "History",
+        "Gender studies",
+        "Music"
+      ]
+    }
+  ]
+}

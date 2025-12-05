@@ -1,0 +1,36 @@
+<section class="container">
+  <h1>Apply for faculty position</h1>
+  <form [formGroup]="teacherForm">
+    <mat-form-field class="first-name-form-field">
+      <mat-label class="first-name-label" for="firstname">Firstname</mat-label>
+      <input matInput type="text" autocomplete="given-name" id="firstname" placeholder="Enter your firstname" formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field class="last-name-form-field">
+      <mat-label class="last-name-label" for="lastname">Lastname</mat-label>
+      <input matInput type="text" autocomplete="family-name" id="lastname" placeholder="Enter your lastname" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field class="email-form-field">
+      <mat-label class="email-label" for="email">Email</mat-label>
+      <input matInput type="email" id="email" placeholder="Enter your email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="subject-form-field">
+      <mat-label class="subject-label" for="subject">Subject</mat-label>
+      <input matInput type="text" id="subject" placeholder="Enter subject you want to teach" formControlName="subject">
+    </mat-form-field>
+    <mat-form-field class="age-form-field">
+      <mat-label class="age-label" for="age">Age</mat-label>
+      <input matInput type="number" id="age" placeholder="Enter your age" formControlName="age">
+    </mat-form-field>
+    <mat-form-field class="experience-form-field">
+      <mat-label class="experience-label" for="experience">Experience (years)</mat-label>
+      <input matInput type="number" id="experience" placeholder="Enter years of experience" formControlName="experience">
+    </mat-form-field>
+    <mat-form-field class="salary-form-field">
+      <mat-label class="salary-label" for="salary">Salary</mat-label>
+      <input matInput type="number" id="salary" placeholder="Enter your desired salary" formControlName="salary">
+    </mat-form-field>
+    <div class="buttons-place">
+      <button (click)="onSubmit()" class="btn btn-orange">Submit Application</button>
+    </div>
+  </form>
+</section>

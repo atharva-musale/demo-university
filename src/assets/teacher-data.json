@@ -1,0 +1,79 @@
+{
+  "teachers": [
+    {
+      "id": "teach1",
+      "firstname": "Rajesh",
+      "lastname": "Verma",
+      "age": 45,
+      "email": "rajesh.verma@school.edu",
+      "experience": 20,
+      "subject": "Physics",
+      "salary": 75000,
+      "address": {
+        "apartment": "Apt 302, Sunrise Heights",
+        "city": "Mumbai",
+        "zipcode": "400001"
+      }
+    },
+    {
+      "id": "teach2",
+      "firstname": "Sneha",
+      "lastname": "Nair",
+      "age": 38,
+      "email": "sneha.nair@school.edu",
+      "experience": 12,
+      "subject": "Chemistry",
+      "salary": 65000,
+      "address": {
+        "apartment": "Flat 105, Green Valley",
+        "city": "Bangalore",
+        "zipcode": "560001"
+      }
+    },
+    {
+      "id": "teach3",
+      "firstname": "Amit",
+      "lastname": "Joshi",
+      "age": 52,
+      "email": "amit.joshi@school.edu",
+      "experience": 28,
+      "subject": "Maths",
+      "salary": 85000,
+      "address": {
+        "apartment": "Villa 12, Palm Residency",
+        "city": "Pune",
+        "zipcode": "411001"
+      }
+    },
+    {
+      "id": "teach4",
+      "firstname": "Kavita",
+      "lastname": "Menon",
+      "age": 35,
+      "email": "kavita.menon@school.edu",
+      "experience": 10,
+      "subject": "Biology",
+      "salary": 60000,
+      "address": {
+        "apartment": "Apt 201, Skyline Towers",
+        "city": "Chennai",
+        "zipcode": "600001"
+      }
+    },
+    {
+      "id": "teach5",
+      "firstname": "Vikram",
+      "lastname": "Rao",
+      "age": 41,
+      "email": "vikram.rao@school.edu",
+      "experience": 15,
+      "subject": "English",
+      "salary": 70000,
+      "address": {
+        "apartment": "Flat 408, Maple Court",
+        "city": "Delhi",
+        "zipcode": "110001"
+      }
+    }
+  ]
+}

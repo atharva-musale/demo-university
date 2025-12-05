@@ -1,0 +1,44 @@
+<section class="container">
+  <h1>Student Registration</h1>
+  <form [formGroup]="studentForm">
+    <mat-form-field class="first-name-form-field">
+      <mat-label class="first-name-label" for="firstname">Firstname</mat-label>
+      <input matInput type="text" autocomplete="given-name" id="firstname" placeholder="Enter your firstname" formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field class="last-name-form-field">
+      <mat-label class="last-name-label" for="lastname">Lastname</mat-label>
+      <input matInput type="text" autocomplete="family-name" id="lastname" placeholder="Enter your lastname" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field class="age-form-field">
+      <mat-label class="age-label" for="age">Age</mat-label>
+      <input matInput type="number" id="age" placeholder="Enter your age" formControlName="age">
+    </mat-form-field>
+    <mat-form-field class="date-of-birth-form-field">
+      <mat-label class="date-of-birth-label" for="dateOfBirth">Date of Birth</mat-label>
+      <input matInput id="dateOfBirth" formControlName="dateOfBirth" placeholder="Enter your date of birth" autocomplete="bday"
+        [datePlaceholderMask]="'dd/mm/yyyy'"
+        [matDatepicker]="dobPicker">
+      <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
+      <mat-datepicker #dobPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="gender-form-field">
+      <mat-label class="gender-label" for="gender">Gender</mat-label>
+      <input matInput type="text" id="gender" placeholder="Enter your gender" formControlName="gender">
+    </mat-form-field>
+    <mat-form-field class="year-of-study-form-field">
+      <mat-label class="year-of-study-label" for="yearOfStudy">Year of Study</mat-label>
+      <input matInput type="number" id="yearOfStudy" placeholder="Enter year (1-4)" formControlName="yearOfStudy">
+    </mat-form-field>
+    <mat-form-field class="branch-form-field">
+      <mat-label class="branch-label" for="branch">Branch</mat-label>
+      <input matInput type="text" id="branch" placeholder="Enter your branch" formControlName="branch">
+    </mat-form-field>
+    <mat-form-field class="subjects-form-field">
+      <mat-label class="subjects-label" for="subjects">Subjects</mat-label>
+      <input matInput type="text" id="subjects" placeholder="Enter subjects (comma separated)" formControlName="subjects">
+    </mat-form-field>
+    <div class="buttons-place">
+      <button (click)="onSubmit()" class="btn btn-orange" [disabled]="studentForm.invalid">Submit Registration</button>
+    </div>
+  </form>
+</section>

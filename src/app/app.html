@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <p [class.auth]="isAuthenticated$ | async" (click)="logoClickHandler()" class="logo">{{ (isAuthenticated$ | async) ? 'ADMIN' : 'GUEST' }}</p>
+    <ul class="nav-list">
+      <li class="nav-item"><a routerLink="/home" routerLinkActive="active-tab">Home</a></li>
+      <li class="nav-item"><a routerLink="/admin" routerLinkActive="active-tab">Admin</a></li>
+      <li class="nav-item"><a routerLink="/add-student" routerLinkActive="active-tab">Enroll</a></li>
+      <li class="nav-item"><a routerLink="/add-teacher" routerLinkActive="active-tab">Apply</a></li>
+    </ul>
+  </nav>
+</header>
+<router-outlet />

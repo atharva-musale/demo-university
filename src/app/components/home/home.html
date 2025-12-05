@@ -1,0 +1,15 @@
+@if ((errorMessage$ | async); as err) {
+  <p class="container error">{{ err }}</p>
+}
+
+<section class="container">
+  <h1>Welcome to demo university application 🏫</h1>
+  <p>This is a demo application to write unit tests and compare the writing styles, adaptability, tooling support and performance differences. This project serves as a testing ground to evaluate unit testing frameworks vitest and karma, and methodologies in Angular, allowing developers to explore best practices, measure code coverage, and assess the effectiveness of different testing approaches. It includes sample components with student and teacher data management to provide realistic scenarios for comprehensive test case development.</p>
+  <p>Press the following buttons to navigate to the pages, you can use the navigation bar above as well.</p>
+  <p class="highlight-text"> Please note that you will be able to access admin page only if you have the necessary permissions. To get permissions, please click on the demo button on the left of the navigation bar. If it is dark with white text inside, it means permission was granted.</p>
+  <div class="buttons-place">
+    <button (click)="navigateTo('admin')" class="btn btn-orange">Admin page</button>
+    <button (click)="navigateTo('add-student')" class="btn btn-orange-outline">Enroll</button>
+    <button (click)="navigateTo('add-teacher')" class="btn btn-orange-outline">Apply</button>
+  </div>
+</section>

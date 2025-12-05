@@ -1,0 +1,8 @@
+mat-form-field {
+  width: min(80%, 40rem);
+  display: block;
+}
+
+input {
+  background-color: transparent !important;
+}

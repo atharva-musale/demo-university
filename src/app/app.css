@@ -1,0 +1,10 @@
+.active-tab {
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+
+.auth {
+  background-color: var(--black);
+  color: var(--white);
+}

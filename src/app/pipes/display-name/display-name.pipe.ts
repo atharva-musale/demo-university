@@ -1,11 +1,12 @@
-import { Pipe } from "@angular/core";
+import { Pipe, PipeTransform } from "@angular/core";
+import { FullName } from "../../models/name";
 
 @Pipe({
   name: 'displayName',
   standalone: true
 })
-export class DisplayNamePipe {
-  transform(firstName: string, lastName: string): string {
-    return `${firstName} ${lastName}`;
+export class DisplayNamePipe implements PipeTransform {
+  transform(studentOrTeacherWithFullName: FullName): string {
+    return `${studentOrTeacherWithFullName.firstname} ${studentOrTeacherWithFullName.lastname}`;
   }
 }

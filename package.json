@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve-teachers": "json-server --watch src/assets/teacher-data.json --port 5000",
-    "serve-students": "json-server --watch src/assets/data.json --port 4000",
+    "serve-students": "json-server --watch src/assets/student-data.json --port 4000",
     "lint": "ng lint"
   },
   "prettier": {

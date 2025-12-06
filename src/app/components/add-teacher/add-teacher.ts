@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormValidityChecker } from '../../models/form-validity';
+import { TeacherService } from '../../services';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-add-teacher',
@@ -10,13 +13,16 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./add-teacher.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddTeacher {
+export class AddTeacher implements FormValidityChecker {
   /**
    * Reactive form group for adding a new teacher
    */
   public teacherForm: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private teacherService: TeacherService
+  ) {
     this.teacherForm = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -28,7 +34,13 @@ export class AddTeacher {
     });
   }
 
-  public onSubmit() {
+  public async onSubmit() {
     console.log('Teacher Form Submitted', this.teacherForm.value);
+    const result = await firstValueFrom(this.teacherService.addTeacher(this.teacherForm.value));
+    console.log('Add Teacher Result:', result);
+  }
+
+  public isFormValid(): boolean {
+    return this.teacherForm.valid;
   }
 }

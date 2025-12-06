@@ -1,4 +1,6 @@
-export interface Student {
+import { FullName } from "./name";
+
+export interface Student extends FullName {
   id: string;
   firstname: string;
   lastname: string;

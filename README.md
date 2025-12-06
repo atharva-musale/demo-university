@@ -1,4 +1,51 @@
-# RefxDemoTest
+# Demo University
+
+## Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/atharva-musale/demo-university.git
+cd demo-university
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run the Application
+
+Start the Angular development server:
+
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:4200`
+
+### Run JSON Servers
+
+To work with student and teacher data, start the JSON servers in separate terminals:
+
+**For Students (Port 4000):**
+```bash
+npm run serve-students
+```
+
+**For Teachers (Port 5000):**
+```bash
+npm run serve-teachers
+```
+
+### Run Tests
+
+```bash
+npm test
+```
+
+## DOM Emulators
 
 Now since the default test runner is vitest, we have an option with dom emulators: jsdom (default) and happy-dom.
 
@@ -44,3 +91,5 @@ Refer to https://vitest.dev/config/ this for more.
 ## Mocking and other guides:
 https://vitest.dev/guide/mocking#timers
 https://cookbook.marmicode.io/angular/testing/migrating-to-vitest
+Migration guide: https://angular.dev/update-guide?v=20.0-21.0&l=3
+Testing migration: https://angular.dev/guide/testing/migrating-to-vitest

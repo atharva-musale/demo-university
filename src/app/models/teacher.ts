@@ -1,6 +1,7 @@
 import { Address } from "./address";
+import { FullName } from "./name";
 
-export interface Teacher {
+export interface Teacher extends FullName {
   id: string;
   firstname: string;
   lastname: string;

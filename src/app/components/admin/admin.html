@@ -2,4 +2,16 @@
   <h1>Admin Page</h1>
   <p>Welcome to the Admin page. This section contains sensitive information about students and teachers that require special permissions to access.</p>
   <p>From here, you can see the salary of faculty members as well 🙈.</p>
+  <div class="buttons-place">
+    <button (click)="toggleView('students')" class="btn btn-orange">Show students</button>
+    <button (click)="toggleView('teachers')" class="btn btn-orange-outline">Show teachers</button>
+  </div>
 </section>
+@let showStudentsOrTeachers = showStudentsOrTeachers$ | async;
+@if (showStudentsOrTeachers === 'students') {
+  <app-students></app-students>
+}
+
+@if (showStudentsOrTeachers === 'teachers') {
+  <app-teachers></app-teachers>
+}

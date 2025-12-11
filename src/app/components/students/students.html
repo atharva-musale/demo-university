@@ -1,1 +1,38 @@
-<p>students works!</p>
+<ul>
+  @for (student of students$ | async; track student.id) {
+    <li class="list-item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2>
+              <span>{{ student | displayName }}</span>
+              <span>, {{ student.age }}</span>
+            </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="student-data">
+          <div class="data-row">
+            <span class="label">Date of Birth:</span>
+            <span class="value">{{ student.dateOfBirth }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Gender:</span>
+            <span class="value">{{ student.gender }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Year of Study:</span>
+            <span class="value">{{ student.yearOfStudy }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Branch:</span>
+            <span class="value">{{ student.branch }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Subjects:</span>
+            <span class="value">{{ student.subjects.join(', ') }}</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </li>
+  }
+</ul>

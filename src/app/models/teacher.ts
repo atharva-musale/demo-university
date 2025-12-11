@@ -5,6 +5,7 @@ export interface Teacher extends FullName {
   id: string;
   firstname: string;
   lastname: string;
+  email: string;
   age: number;
   experience: number;
   subject: string;

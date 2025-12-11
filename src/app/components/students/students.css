@@ -1,0 +1,23 @@
+h2 {
+  margin: 0;
+}
+
+mat-expansion-panel {
+  width: min(80rem, 90%);
+  background-color: var(--gray-100);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  margin: 3rem auto;
+  border-radius: 0;
+}
+
+mat-expansion-panel-header {
+  padding: 3rem;
+}
+
+.data-row {
+  margin-bottom: 1rem;
+}
+
+.data-row .label {
+  margin-right: 1rem;
+}

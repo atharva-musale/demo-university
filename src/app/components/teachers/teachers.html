@@ -1,1 +1,38 @@
-<p>teachers works!</p>
+<ul>
+  @for (teacher of teachers$ | async; track teacher.id) {
+    <li class="list-item">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2>
+              <span>{{ teacher | displayName }}</span>
+              <span>, {{ teacher.age }}</span>
+            </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="teacher-data">
+          <div class="data-row">
+            <span class="label">Email:</span>
+            <span class="value">{{ teacher.email }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Experience:</span>
+            <span class="value">{{ teacher.experience }} years</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Subject:</span>
+            <span class="value">{{ teacher.subject }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Salary:</span>
+            <span class="value">₹{{ teacher.salary }}</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Address:</span>
+            <span class="value">{{ teacher.address.apartment }}, {{ teacher.address.city }} - {{ teacher.address.zipcode }}</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </li>
+  }
+</ul>

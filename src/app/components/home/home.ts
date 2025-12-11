@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
   styleUrl: './home.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Home {
+export class Home implements OnDestroy {
   private errorMessageSubject$ = new BehaviorSubject<string | null>(null);
   public errorMessage$ = this.errorMessageSubject$.asObservable();
 

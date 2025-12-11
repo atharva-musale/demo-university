@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, GuardResult, MaybeAsync, Router } from "@angular/router";
-import { map } from "rxjs";
+import { CanActivate, Router } from "@angular/router";
+import { map, Observable } from "rxjs";
 import { AuthenticationService } from "../../services";
 
 @Injectable({
@@ -13,7 +13,7 @@ export class AuthenticationGuard implements CanActivate {
     private router: Router
   ) {}
 
-  public canActivate(): MaybeAsync<GuardResult> {
+  public canActivate(): Observable<boolean> {
     return this.authService.isAuthenticated$.pipe(map(isLoggedIn => {
       if (!isLoggedIn) {
         this.router.navigate(['home'], {

@@ -1,6 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Home } from './home';
+import { NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { clickElementByClass } from '../../testing';
+
+const mockRouter = {
+  navigate: vi.fn(),
+  events: new BehaviorSubject<NavigationEnd>(new NavigationEnd(1, '/home', '/home')),
+  currentNavigation: vi.fn().mockReturnValue({
+    extras: {
+      state: { error: 'Sample error message'}
+    }
+  })
+}
 
 describe('Home', () => {
   let component: Home;
@@ -8,7 +21,10 @@ describe('Home', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Home]
+      imports: [Home],
+      providers: [
+        { provide: Router, useValue: mockRouter }
+      ]
     })
     .compileComponents();
 
@@ -19,5 +35,20 @@ describe('Home', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display error message on NavigationEnd with error state', async () => {
+    mockRouter.events.next(new NavigationEnd(2, '/home', '/home'));
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const error = await firstValueFrom(component.errorMessage$);
+    expect(error).toBe('Sample error message');
+  });
+
+  it('should navigate to specified route', () => {
+    clickElementByClass(fixture, 'go-admin');
+
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['admin']);
   });
 });

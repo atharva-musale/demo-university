@@ -1,0 +1,20 @@
+import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { describe, it, expect, beforeEach } from 'vitest';
+
+import { StudentService } from './student.service';
+
+describe('StudentService', () => {
+  let service: StudentService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()]
+    });
+    service = TestBed.inject(StudentService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

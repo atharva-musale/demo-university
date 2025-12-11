@@ -6,7 +6,7 @@ import { AuthenticationServiceFixture } from './services/fixtures';
 import { clickElementByClass, getTextContentFromElementByClass } from './testing';
 import { provideRouter } from '@angular/router';
 
-describe('App', () => {
+describe.only('App', () => {
   let component: App;
   let fixture: ComponentFixture<App>;
   let mockAuthService: AuthenticationServiceFixture;
@@ -35,12 +35,20 @@ describe('App', () => {
   });
 
   it('should update logo from guest to admin if logo is clicked', async () => {
+    mockAuthService.isAuthenticatedInstant$.next(false);
+    fixture.detectChanges();
+
+    const logoTextBefore = getTextContentFromElementByClass(fixture, 'logo');
+    expect(logoTextBefore?.trim()).toBe('GUEST');
+
     clickElementByClass(fixture, 'logo');
+    await fixture.whenStable();
+
     mockAuthService.isAuthenticatedInstant$.next(true);
     fixture.detectChanges();
 
-    const logoText = getTextContentFromElementByClass(fixture, 'logo');
-    expect(mockAuthService.revokeAccess).toHaveBeenCalled();
-    expect(logoText?.trim()).toBe('ADMIN');
+    const logoTextAfter = getTextContentFromElementByClass(fixture, 'logo');
+    expect(mockAuthService.grantAccess).toHaveBeenCalled();
+    expect(logoTextAfter?.trim()).toBe('ADMIN');
   });
 });

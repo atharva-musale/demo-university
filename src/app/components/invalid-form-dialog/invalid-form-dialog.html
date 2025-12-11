@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Form Not Submitted</h1>
+<h1 class="dialog-title" mat-dialog-title>Form Not Submitted</h1>
 <mat-dialog-content>
-  <p>Your form contains invalid or incomplete data. Are you sure you want to exit without submitting?</p>
+  <p class="dialog-text">Your form contains invalid or incomplete data. Are you sure you want to exit without submitting?</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <div class="buttons-place">
-    <button class="btn btn-orange" (click)="onStay()">Stay and Fix</button>
-    <button class="btn btn-orange-outline" (click)="onExit()">Exit Anyway</button>
+    <button class="stay btn btn-orange" (click)="onStay()">Stay and Fix</button>
+    <button class="exit btn btn-orange-outline" (click)="onExit()">Exit Anyway</button>
   </div>
 </mat-dialog-actions>

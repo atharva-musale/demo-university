@@ -1,10 +1,10 @@
+/* eslint-disable @angular-eslint/directive-selector */
 import {
   Directive,
   ElementRef,
   HostListener,
   Input,
   OnChanges,
-  SimpleChanges,
 } from '@angular/core';
 import { findDuplicate, formatForDisplay, formatInputWithDatePattern } from './date-placeholder-mask.helpers';
 
@@ -181,7 +181,7 @@ export class DatePlaceholderMaskDirective implements OnChanges {
     )(0);
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges() {
     if (this.datePlaceholderMask) {
       // if the date placeholder is invalid format, then default it to dd/mm/yyyy
       this.datePlaceholderMask = this.datePlaceholderMask.includes('/') && this.datePlaceholderMask.split('/').length === 3 ? this.datePlaceholderMask : 'dd/mm/yyyy';

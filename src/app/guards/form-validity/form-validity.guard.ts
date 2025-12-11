@@ -1,16 +1,23 @@
 import { Injectable } from "@angular/core";
 import { FormValidityChecker } from "../../models/form-validity";
 import { CanDeactivate } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { InvalidFormDialog } from "../../components/invalid-form-dialog/invalid-form-dialog";
+import { map, Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormValidityGuard implements CanDeactivate<FormValidityChecker> {
-  public canDeactivate(component: FormValidityChecker): boolean {
+  constructor(private dialog: MatDialog) {}
+
+  public canDeactivate(component: FormValidityChecker): Observable<boolean> {
     if (component.isFormValid()) {
-      return true;
+      return of(true);
     }
-    const confirmLeave = window.confirm('You have unsaved changes. Are you sure you want to leave this page?');
-    return confirmLeave;
+
+    return this.dialog.open(InvalidFormDialog).afterClosed().pipe(
+      map(result => result)
+    );
   }
 }

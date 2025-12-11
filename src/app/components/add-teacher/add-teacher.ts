@@ -34,12 +34,19 @@ export class AddTeacher implements FormValidityChecker {
     });
   }
 
+  /**
+   * Handles the form submission to add a new teacher.
+   */
   public async onSubmit() {
-    console.log('Teacher Form Submitted', this.teacherForm.value);
-    const result = await firstValueFrom(this.teacherService.addTeacher(this.teacherForm.value));
-    console.log('Add Teacher Result:', result);
+    await firstValueFrom(this.teacherService.addTeacher(this.teacherForm.value));
   }
 
+  /**
+   * Checks if the teacher form is valid.
+   * needed for the guard
+   *
+   * @returns boolean
+   */
   public isFormValid(): boolean {
     return this.teacherForm.valid;
   }

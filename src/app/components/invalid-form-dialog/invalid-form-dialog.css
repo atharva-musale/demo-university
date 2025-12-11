@@ -1,0 +1,6 @@
+.mat-mdc-dialog-title {
+  font-family: var(--font-playfair-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}

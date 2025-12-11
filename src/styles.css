@@ -207,46 +207,7 @@ nav li a:hover::after {
   margin-top: 2rem;
 }
 
-/* form elements */
-/* input, select {
-  border: none;
-  font-size: 1.5rem;
-  font-family: var(--font-raleway);
-  border-radius: 0.3rem;
-  outline: 1px solid var(--gray-200);
-  padding: 0.5rem 1rem;
-}
-input:focus, select:focus {
-  outline: 2px solid var(--blue-200);
-}
-
-input.error, select.error {
-  outline: 2px solid var(--error);
-}
-
-.form-item {
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-}
-
-.form-item label {
-  font-family: var(--font-raleway);
-  font-size: 1.5rem;
-  flex-basis: 15%;
-}
-
-.form-item input, .form-item select {
-  width: 40rem;
-}
-
-.validation-error {
-  font-family: var(--font-raleway);
-  color: var(--error);
-  font-size: 1.2rem;
-  margin-left: 15%;
-  margin-top: -1rem;
-} */
+/* Material overrides */
 
 mat-form-field {
   font-size: 1.5rem !important;
@@ -262,4 +223,9 @@ mat-form-field {
 
 .mat-expansion-panel-body {
   padding: 0 4rem 3rem 4rem !important;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 0 !important;
+  padding: 1rem;
 }

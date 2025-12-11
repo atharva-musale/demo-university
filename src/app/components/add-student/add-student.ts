@@ -39,12 +39,19 @@ export class AddStudent implements FormValidityChecker {
     });
   }
 
+  /**
+   * Handles the form submission to add a new student.
+   */
   public async onSubmit() {
-    console.log('Student Form Submitted', this.studentForm.value);
-    const result = await firstValueFrom(this.studentService.addStudent(this.studentForm.value));
-    console.log('Add Student Result:', result);
+    await firstValueFrom(this.studentService.addStudent(this.studentForm.value));
   }
 
+  /**
+   * Checks if the student form is valid.
+   * needed for the guard
+   *
+   * @returns boolean
+   */
   public isFormValid(): boolean {
     return this.studentForm.valid;
   }

@@ -38,7 +38,9 @@ export class AddTeacher implements FormValidityChecker {
    * Handles the form submission to add a new teacher.
    */
   public async onSubmit() {
-    await firstValueFrom(this.teacherService.addTeacher(this.teacherForm.value));
+    if (this.teacherForm.valid) {
+      await firstValueFrom(this.teacherService.addTeacher(this.teacherForm.value));
+    }
   }
 
   /**

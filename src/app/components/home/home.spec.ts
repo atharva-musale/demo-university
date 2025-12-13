@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Home } from './home';
 import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
-import { clickElementByClass } from '../../testing';
+import { clickElementBySelector } from '../../testing';
 
 const mockRouter = {
   navigate: vi.fn(),
@@ -25,8 +25,7 @@ describe('Home', () => {
       providers: [
         { provide: Router, useValue: mockRouter }
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
@@ -40,14 +39,13 @@ describe('Home', () => {
   it('should display error message on NavigationEnd with error state', async () => {
     mockRouter.events.next(new NavigationEnd(2, '/home', '/home'));
     fixture.detectChanges();
-    await fixture.whenStable();
 
     const error = await firstValueFrom(component.errorMessage$);
     expect(error).toBe('Sample error message');
   });
 
   it('should navigate to specified route', () => {
-    clickElementByClass(fixture, 'go-admin');
+    clickElementBySelector(fixture, '.go-admin');
 
     expect(mockRouter.navigate).toHaveBeenCalledWith(['admin']);
   });

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef } from '@angular/material/dialog';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { InvalidFormDialog } from './invalid-form-dialog';
-import { clickElementByClass, getTextContentFromElementByClass } from '../../testing';
+import { clickElementBySelector, getTextContentFromElementBySelector } from '../../testing';
 
 describe('InvalidFormDialog', () => {
   let component: InvalidFormDialog;
@@ -32,23 +32,23 @@ describe('InvalidFormDialog', () => {
   });
 
   it('should display the dialog title', () => {
-    const titleText = getTextContentFromElementByClass(fixture, 'dialog-title');
+    const titleText = getTextContentFromElementBySelector(fixture, '.dialog-title');
     expect(titleText?.trim()).toBe('Form Not Submitted');
   });
 
   it('should display the warning message', () => {
-    const messageText = getTextContentFromElementByClass(fixture, 'dialog-text');
+    const messageText = getTextContentFromElementBySelector(fixture, '.dialog-text');
     expect(messageText).toContain('Your form contains invalid or incomplete data');
     expect(messageText).toContain('Are you sure you want to exit without submitting?');
   });
 
   it('should have Stay and Fix button', () => {
-    const stayButtonText = getTextContentFromElementByClass(fixture, 'stay');
+    const stayButtonText = getTextContentFromElementBySelector(fixture, '.stay');
     expect(stayButtonText?.trim()).toBe('Stay and Fix');
   });
 
   it('should have Exit Anyway button', () => {
-    const exitButtonText = getTextContentFromElementByClass(fixture, 'exit');
+    const exitButtonText = getTextContentFromElementBySelector(fixture, '.exit');
     expect(exitButtonText?.trim()).toBe('Exit Anyway');
   });
 
@@ -65,7 +65,7 @@ describe('InvalidFormDialog', () => {
   it('should call onStay when Stay and Fix button is clicked', () => {
     const onStaySpy = vi.spyOn(component, 'onStay');
 
-    clickElementByClass(fixture, 'stay');
+    clickElementBySelector(fixture, '.stay');
 
     expect(onStaySpy).toHaveBeenCalled();
     expect(mockDialogRef.close).toHaveBeenCalledWith(false);
@@ -74,7 +74,7 @@ describe('InvalidFormDialog', () => {
   it('should call onExit when Exit Anyway button is clicked', () => {
     const onExitSpy = vi.spyOn(component, 'onExit');
 
-    clickElementByClass(fixture, 'exit');
+    clickElementBySelector(fixture, '.exit');
 
     expect(onExitSpy).toHaveBeenCalled();
     expect(mockDialogRef.close).toHaveBeenCalledWith(true);

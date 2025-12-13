@@ -3,10 +3,10 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { App } from './app';
 import { AuthenticationService } from './services';
 import { AuthenticationServiceFixture } from './services/fixtures';
-import { clickElementByClass, getTextContentFromElementByClass } from './testing';
+import { clickElementBySelector, getTextContentFromElementBySelector } from './testing';
 import { provideRouter } from '@angular/router';
 
-describe.only('App', () => {
+describe('App', () => {
   let component: App;
   let fixture: ComponentFixture<App>;
   let mockAuthService: AuthenticationServiceFixture;
@@ -28,7 +28,7 @@ describe.only('App', () => {
     mockAuthService.isAuthenticatedInstant$.next(false);
     fixture.detectChanges();
 
-    const logoText = getTextContentFromElementByClass(fixture, 'logo');
+    const logoText = getTextContentFromElementBySelector(fixture, '.logo');
 
     expect(component).toBeTruthy();
     expect(logoText?.trim()).toBe('GUEST');
@@ -38,16 +38,16 @@ describe.only('App', () => {
     mockAuthService.isAuthenticatedInstant$.next(false);
     fixture.detectChanges();
 
-    const logoTextBefore = getTextContentFromElementByClass(fixture, 'logo');
+    const logoTextBefore = getTextContentFromElementBySelector(fixture, '.logo');
     expect(logoTextBefore?.trim()).toBe('GUEST');
 
-    clickElementByClass(fixture, 'logo');
+    clickElementBySelector(fixture, '.logo');
     await fixture.whenStable();
 
     mockAuthService.isAuthenticatedInstant$.next(true);
     fixture.detectChanges();
 
-    const logoTextAfter = getTextContentFromElementByClass(fixture, 'logo');
+    const logoTextAfter = getTextContentFromElementBySelector(fixture, '.logo');
     expect(mockAuthService.grantAccess).toHaveBeenCalled();
     expect(logoTextAfter?.trim()).toBe('ADMIN');
   });

@@ -11,7 +11,14 @@ import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-add-student',
-  imports: [MatFormField, MatLabel, ReactiveFormsModule, MatInputModule, DatePlaceholderMaskDirective, MatDatepickerModule],
+  imports: [
+    MatFormField,
+    MatLabel,
+    ReactiveFormsModule,
+    MatInputModule,
+    DatePlaceholderMaskDirective,
+    MatDatepickerModule
+  ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './add-student.html',
   styleUrl: './add-student.css',
@@ -43,7 +50,9 @@ export class AddStudent implements FormValidityChecker {
    * Handles the form submission to add a new student.
    */
   public async onSubmit() {
-    await firstValueFrom(this.studentService.addStudent(this.studentForm.value));
+    if (this.studentForm.valid) {
+      await firstValueFrom(this.studentService.addStudent(this.studentForm.value));
+    }
   }
 
   /**

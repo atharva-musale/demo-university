@@ -4,7 +4,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 
 import { DisplayNamePipe } from './display-name.pipe';
 import { FullName } from '../../models/name';
-import { getTextContentFromElementByClass } from '../../testing';
+import { getTextContentFromElementBySelector } from '../../testing';
 
 @Component({
   standalone: true,
@@ -38,7 +38,7 @@ describe('DisplayNamePipe', () => {
   });
 
   it('should display full name correctly in template', () => {
-    const displayNameElement = getTextContentFromElementByClass(fixture, 'display-name');
+    const displayNameElement = getTextContentFromElementBySelector(fixture, '.display-name');
 
     expect(displayNameElement).toBe('John Doe');
   });
@@ -47,7 +47,7 @@ describe('DisplayNamePipe', () => {
     fixture.componentRef.setInput('person', { firstname: '', lastname: '' });
     fixture.detectChanges();
 
-    const displayNameElement = getTextContentFromElementByClass(fixture, 'display-name');
+    const displayNameElement = getTextContentFromElementBySelector(fixture, '.display-name');
 
     expect(displayNameElement).toBe(' ');
   });

@@ -73,7 +73,7 @@
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "buildTarget": "refx-demo-test:build",
-            "browsers": ["chromium"]
+            "runnerConfig": "vitest.config.ts"
           }
         },
         "lint": {

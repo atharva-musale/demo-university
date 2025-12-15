@@ -1,5 +1,16 @@
 # Demo University
 
+An Angular application for managing college students and teachers with comprehensive testing using Vitest.
+
+## Features
+
+- **Student Management**: Register students with personal details, academic information, and subjects
+- **Teacher Management**: Faculty application system with experience and salary tracking
+- **Authentication**: Guard-protected admin section with role-based access
+- **Form Validation**: Material Design forms with custom validators and navigation guards
+- **Responsive UI**: Material Design components for a modern user experience
+- **Testing**: Comprehensive unit tests with Vitest in browser mode using Playwright
+
 ## Getting Started
 
 ### Clone the Repository
@@ -45,7 +56,7 @@ npm run serve-teachers
 npm test
 ```
 
-## DOM Emulators
+## Using Vitest for unit testing
 
 Now since the default test runner is vitest, we have an option with dom emulators: jsdom (default) and happy-dom.
 
@@ -64,32 +75,26 @@ Now since the default test runner is vitest, we have an option with dom emulator
 3. Change types in tsconfig.
 4. Use angular schematics with additional `--add-imports` flag to get imports per file from vitest. (OR do we want to define types and paths in tsconfig).
 
-## Globals
+### Generate Coverage Report
 
-Use runnerconfig to change it.
-```json
-"test": {
-  "builder": "@angular/build:unit-test",
-  "options": {
-    "tsConfig": "tsconfig.spec.json",
-    "buildTarget": "refx-demo-test:build",
-    "runnerConfig": "vitest.config.ts"
-  }
-}
+```bash
+npm run coverage
 ```
-And then in the config file:
-```ts
 
-export default defineConfig({
-  test: {
-    globals: false
-  }
-})
-```
-Refer to https://vitest.dev/config/ this for more.
+Coverage reports are saved to `./coverage/` directory:
+- **HTML Report**: `coverage/index.html` - Open in browser for interactive report
+- **JSON Report**: `coverage/coverage-final.json` - Machine-readable data
+- **LCOV Report**: `coverage/lcov.info` - For CI/CD integration
+- **Console**: Text summary displayed in terminal
 
-## Mocking and other guides:
-https://vitest.dev/guide/mocking#timers
-https://cookbook.marmicode.io/angular/testing/migrating-to-vitest
-Migration guide: https://angular.dev/update-guide?v=20.0-21.0&l=3
-Testing migration: https://angular.dev/guide/testing/migrating-to-vitest
+### Why V8 Coverage?
+
+When using Vitest's browser mode, only the V8 coverage provider is supported. Istanbul requires code instrumentation incompatible with browser environments. V8 uses Chrome's built-in coverage which works seamlessly with browser mode.
+
+## Resources
+
+- [Vitest Configuration](https://vitest.dev/config/)
+- [Vitest Mocking Guide](https://vitest.dev/guide/mocking)
+- [Angular Testing Migration](https://angular.dev/guide/testing/migrating-to-vitest)
+- [Angular Update Guide](https://angular.dev/update-guide?v=20.0-21.0&l=3)
+- [Vitest Angular Cookbook](https://cookbook.marmicode.io/angular/testing/migrating-to-vitest)
